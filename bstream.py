@@ -150,7 +150,7 @@ if navigation == 'Prediction':
             def user_predict():
                  global U_pred
                  X= df.drop(["diagnosis"], axis=1)
-                 model = LogisticRegression()
+                 model = LogisticRegression(C=c, penalty='l2', max_iter=max_iter,solver='liblinear')
                  model.fit(x_train, y_train)
                  accuracy = model.score(x_test, y_test)
                  y_pred = model.predict(x_test)
